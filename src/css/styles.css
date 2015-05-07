@@ -1,0 +1,233 @@
+@import "./_variables.css";
+
+@lost gutter 1rem;
+@lost flexbox flex;
+
+body {
+    background: #fafafa;
+}
+button {
+    padding: 0 1rem;
+    min-height: 2.4rem;
+    background: #166aa2;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-right: .2rem;
+}
+.page-header {
+    background: #f7f7f7;
+    border-bottom: 0.1rem solid #d3d7db;
+    line-height: 3rem;
+    padding: 0 1rem;
+}
+.page-header i {
+    padding: 0 1rem;
+}
+section {
+    padding: 1rem;
+    lost-flex-container: column;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 0 rgba(12,12,12,0.03);
+    background-color: #fcfcfc;
+}
+td, th {
+    padding: 10px;
+    border: 1px solid #eee;
+}
+th {
+    background: #f7f7f7;
+}
+
+
+
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+}
+
+li:last-child {
+    border: 0;
+}
+
+li p {
+    display: block;
+    padding: 20px;
+    line-height: 1.4;
+}
+
+li p:nth-child(1) {
+    position: relative;
+    padding-right: 25px;
+    font-size: 14px;
+    line-height: 2.5;
+    color: #444;
+}
+
+li p:nth-child(1):after {
+    content: '';
+    position: absolute;
+    top: 28px;
+    right: -17px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 5px solid #444;
+    border-radius: 50%;
+    background: #fff;
+}
+
+li.submitted p:first-child:after {
+    background: #1a9900;
+}
+li.updated p:first-child:after {
+    background: #e9931c;
+}
+li.deleted p:first-child:after {
+    background: #dc502e;
+}
+
+li p:nth-child(2) {
+    flex: 1;
+    font-size: 24px;
+    border-left: 5px solid #444;
+}
+
+li p span {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 12px;
+    font-style: italic;
+    color: #444;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.MyHeader {
+    display: flex;
+    /*padding: 0 2rem;*/
+    background: #fff;
+    color: #444;
+    font-size: 1.6rem;
+    line-height: 3rem;
+    border-bottom: 0.1rem solid #eee;
+}
+
+.MyHeader a {
+    color: #444;
+    line-height: 3rem;
+    display: inline-block;
+    padding: 0 1rem;
+    border-left: .1rem solid #d3d7db;
+}
+
+.MyHeader-nav {
+    margin-right: auto;
+    flex: 1;
+    display: flex;
+}
+.MyHeader-nav input {
+    width: 10rem;
+    background: #fff;
+    padding: 0 2rem;
+    border: none;
+    border-right: 0.1rem solid #d3d7db;
+    border-radius: 0;
+    font-size: .8rem;
+}
+.MyHeader-nav a:hover {
+    border-bottom: .5rem solid #888;
+}
+.MyHeader-nav a.active,
+.MyHeader-nav a.active:hover {
+    border-bottom: .5rem solid #444;
+}
+
+.MyHeader-logo {
+
+}
+.MyHeader-settings {
+    margin-left: auto;
+    flex: 1;
+    text-align: right;
+}
+
+.MyApp,
+.MyApp-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.MyApp {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.MyApp-body {
+    flex: 1;
+    transform: translate3d(0,0,0);
+    transition: transform .3s;
+}
+
+.MyApp-body.MyApp-body--flyout {
+    transform: translate3d(-2em,0,0);
+}
+
+.MyApp footer {
+    background: #ccc;
+    color: #333;
+    min-height: 5rem;
+}
+
+.MyApp-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MyApp --heading {
+    font-weight: 300;
+}
+
+/* Animation */
+.fade-enter {
+    opacity: 0.01;
+    transition: opacity .4s ease-in;
+}
+.fade-enter.fade-enter-active {
+    opacity: 1;
+}
+.fade-leave {
+    opacity: 1;
+    transition: opacity .2s ease-in;
+}
+
+.fade-leave.fade-leave-active {
+    opacity: 0.01;
+}

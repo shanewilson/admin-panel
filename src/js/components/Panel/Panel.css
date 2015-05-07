@@ -1,0 +1,63 @@
+/** @define Panel; use strict; */
+
+@lost flexbox flex;
+
+:root {
+    --Panel-border-radius: 0.2rem;
+}
+
+.Panel {
+    flex: 1;
+    margin: .5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    border: none;
+    border-radius: var(--Panel-border-radius);
+}
+
+
+.Panel-top {
+    background: #444;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    border-bottom: .1rem solid #d3d7db;
+    border-radius: var(--Panel-border-radius) var(--Panel-border-radius) 0 0;
+}
+.Panel-top--medallion {
+    padding: 1rem 1rem 0rem;
+    min-height: 5rem;
+
+}
+
+.Panel-top-title {
+    font-weight: 300;
+}
+
+.Panel-top-medallion {
+    display: block;
+    margin: -4rem auto 0;
+    padding: 1rem;
+    border-radius: 50%;
+    border: .6rem solid #fff;
+    background: #444;
+    color: #fff;
+    width: 5rem;
+    height: 5rem;
+    line-height: 4.7rem;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: .2rem .3rem .3rem rgba(0,0,0,0.3);
+}
+
+.Panel-top-actions {
+    margin-left: auto;
+    flex: 1;
+    text-align: right;
+}
+
+.Panel-content {
+    background: #fff;
+    border-radius: 0 0 var(--Panel-border-radius) var(--Panel-border-radius);
+    display: flex;
+    flex-direction: column;
+}

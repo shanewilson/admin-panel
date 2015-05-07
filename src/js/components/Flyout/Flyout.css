@@ -1,0 +1,60 @@
+/** @define Flyout; use strict; */
+
+:root {
+    --width: 24em;
+    --subwidth: 20em;
+}
+
+.Flyout, .Flyout-child {
+    /* 12em is the width of the columns */
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    transform: translate3d(0,0,0);
+    transition: transform .3s;
+}
+
+.Flyout {
+    /* 12em is the width of the columns */
+    right: -var(--width);
+    width: var(--width);
+    background: #fff;
+    color: #222;
+    z-index: 10000;
+    border-left: 0.1rem solid #ccc;
+}
+
+.Flyout.Flyout--open {
+    transform: translate3d(-var(--width) ,0, 0);
+}
+
+.Flyout-child {
+    right: -var(--subwidth);
+    width: var(--subwidth);
+    background: deepskyblue;
+    z-index: 20000;
+}
+
+.Flyout-child.Flyout--open {
+    transform: translate3d(-var(--subwidth) ,0, 0);
+}
+
+.Flyout-titlebar {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    line-height: 3rem;
+    display: flex;
+    border-bottom: 0.1rem solid #ccc;
+}
+
+.Flyout-titlebar-title {
+    align-self: flex-start;
+}
+
+.Flyout-titlebar-close {
+    margin-left: auto;
+}
+
+.Flyout-content {
+    padding: 2rem;
+}
