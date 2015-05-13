@@ -4,43 +4,33 @@
 }
 
 .Toasts {
-    position: absolute;
-    min-width: 20em;
-    top: 1rem;
-    right: 1rem;
-    align-self: flex-end;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
     z-index: 10000;
+    justify-content: center;
 }
 
 .Toasts-toast {
-    background: #fff;
-    border-radius: 2px;
+    background: #333;
+    color: #fff;
     font-size: 0.8rem;
-    opacity: 1;
-    transition: opacity 0.2s ease-in-out;
-    margin-bottom: 1rem;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(0, 0, 0, .05)
-}
+    padding: 1rem 0.5rem;
+    min-width: 50vw;
 
-.Toasts-toast-titlebar {
-    padding: 0 1rem;
-    font-weight: 600;
-    line-height: 2rem;
+    display: none;
+}
+.Toasts-toast.animated {
     display: flex;
 }
 
-.Toasts-toast-titlebar-title {
-    align-self: flex-start;
-}
-
-.Toasts-toast-titlebar-close {
-    padding: 0;
-    background: none;
-    color: #444;
-    margin-left: auto;
-}
-
 .Toasts-toast-content {
-    padding: 0.5rem 1rem;
+    flex: 1
+}
+
+.Toasts-toast-action {
+    margin-left: 2rem;
+    color: hotpink;
+    text-decoration: none;
 }

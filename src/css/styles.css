@@ -1,10 +1,13 @@
 @import "./_variables.css";
 
-@lost gutter 1rem;
-@lost flexbox flex;
+
+* {box-sizing: border-box;}
 
 body {
     background: #fafafa;
+}
+article {
+    padding: 1rem;
 }
 button {
     padding: 0 1rem;
@@ -175,8 +178,7 @@ li p span {
 
 .MyApp,
 .MyApp-body {
-    display: flex;
-    flex-direction: column;
+
 }
 
 .MyApp {
@@ -188,7 +190,6 @@ li p span {
 }
 
 .MyApp-body {
-    flex: 1;
     transform: translate3d(0,0,0);
     transition: transform .3s;
 }
@@ -213,21 +214,4 @@ li p span {
 
 .MyApp --heading {
     font-weight: 300;
-}
-
-/* Animation */
-.fade-enter {
-    opacity: 0.01;
-    transition: opacity .4s ease-in;
-}
-.fade-enter.fade-enter-active {
-    opacity: 1;
-}
-.fade-leave {
-    opacity: 1;
-    transition: opacity .2s ease-in;
-}
-
-.fade-leave.fade-leave-active {
-    opacity: 0.01;
 }

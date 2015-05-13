@@ -2,9 +2,8 @@ import React from 'react/addons';
 
 import AuthActions from '../../actions/AuthActions';
 import AuthStore from '../../stores/AuthStore';
-import ToastsActions from '../../components/Toasts/ToastsActions';
+import UIActions from '../../actions/UIActions';
 
-import { Logout } from '../../components/LinkTo.jsx';
 import Panel from '../../components/Panel';
 
 class Login extends React.Component {
@@ -56,8 +55,7 @@ class Login extends React.Component {
   }
 
   open(token) {
-    ToastsActions.toast({
-      title: <span>Token Found!</span>,
+    UIActions.toastAdd({
       children: (
         <div>
           Token found for <strong>{token}</strong>.
@@ -72,8 +70,8 @@ class Login extends React.Component {
       <i className='fa fa-spin fa-cog'></i> :
       <i className='fa fa-key'></i>;
     return (
-      <div style={{flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <div style={{width: '75vw', alignSelf: 'center'}}>
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh'}}>
+        <div style={{width: '75vw'}}>
           <Panel title="LOGIN" medallion={medallion}>
             <div style={{'alignSelf': 'center', padding: '2rem 0 5rem'}}>
               {checking ?

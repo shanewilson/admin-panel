@@ -1,161 +1,152 @@
 import React from 'react/addons';
 
+import UIAction from '../../actions/UIActions';
+
+import { Column, Row, Flex } from '../../components/Grid';
+import FlashCard from '../../components/FlashCard';
 import Panel from '../../components/Panel';
 
 class UserDashboard extends React.Component {
+  constructor() {
+    super();
+
+    this.registerCases = this.registerCases.bind(this);
+    this.uploadCases = this.uploadCases.bind(this);
+  }
+
+  registerCases() {
+    UIAction.toastAdd({
+      children: <div>Register Cases</div>
+    });
+  }
+
+  uploadCases() {
+    UIAction.flyoutOpen({
+      title: <div><i className="fa fa-upload"></i> Upload Cases</div>,
+      children: <div>Upload Cases</div>
+    });
+  }
+
+  registerBiospecimen() {
+    UIAction.flyoutOpen({
+      title: <div><i className="fa fa-clipboard"></i> Register Biospecimen</div>,
+      children: <div>Register Biospecimen</div>
+    });
+  }
+
+  uploadBiospecimen() {
+    UIAction.flyoutOpen({
+      title: <div><i className="fa fa-upload"></i> Upload Biospecimen</div>,
+      children: <div>Upload Biospecimen</div>
+    });
+  }
+
+  deleteBlock() {
+
+  }
 
   render() {
     return (
-      <section>
-        <div style={{display: 'flex'}}>
-          <Panel actions={true}>
-            <div style={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            padding: '1rem'
-            }}>
-              <div>
-                <i className="fa fa-user fa-4x"></i>
-              </div>
-              <div style={{marginLeft: '2rem'}}>
-                <div style={{fontSize: '2rem'}}>233</div>
-                <div style={{fontSize: '.8rem'}}>Cases</div>
-              </div>
-            </div>
-          </Panel>
-          <Panel actions={true}>
-            <div style={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            padding: '1rem'
-            }}>
-              <div>
-                <i className="fa fa-stethoscope fa-4x"></i>
-              </div>
-              <div style={{marginLeft: '2rem'}}>
-                <div style={{fontSize: '2rem'}}>678</div>
-                <div style={{fontSize: '.8rem'}}>Biospecimen</div>
-              </div>
-            </div>
-          </Panel>
-          <Panel actions={true}>
-            <div style={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            padding: '1rem'
-            }}>
-              <div>
-                <i className="fa fa-file fa-4x"></i>
-              </div>
-              <div style={{marginLeft: '2rem'}}>
-                <div style={{fontSize: '2rem'}}>45</div>
-                <div style={{fontSize: '.8rem'}}>Files</div>
-              </div>
-            </div>
-          </Panel>
-        </div>
-        <div style={{display: 'flex'}}>
-          <div style={{display: 'flex', flexDirection: 'column', flex: '1'}}>
-            <Panel title="Cases" actions={true}>
-              <table>
-                <thead>
-                <tr>
-                  <th>Case</th>
-                  <th>Project</th>
-                  <th>Submitted</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>TCGA-BRCA</td>
-                  <td>2015-06-07</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>TCGA-BRCA</td>
-                  <td>2015-06-07</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>TCGA-BRCA</td>
-                  <td>2015-06-07</td>
-                </tr>
-                </tbody>
-              </table>
-            </Panel>
-            <Panel title="Biospecimen" actions={true}>
-              <table>
-                <thead>
-                <tr>
-                  <th>Biospecimen</th>
-                  <th>Project</th>
-                  <th>Submitted</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>TCGA-BRCA</td>
-                  <td>2015-06-07</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>TCGA-BRCA</td>
-                  <td>2015-06-07</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>TCGA-BRCA</td>
-                  <td>2015-06-07</td>
-                </tr>
-                </tbody>
-              </table>
-            </Panel>
-          </div>
-          <div style={{display: 'flex', flex: '1'}}>
-            <Panel title='Timeline' actions={true}>
-              <ul>
-                <li className="submitted">
-                  <p>07/2015 - 07/2016</p>
-                  <p>
-                    Case 3
-                    <span>TCGA-BRCA, Submitted</span>
-                  </p>
-                </li>
-                <li className="deleted">
-                  <p>07/2014 - 07/2015</p>
-                  <p>
-                    Biospecimen 4
-                    <span>TCGA-BRCA, Deleted</span>
-                  </p>
-                </li>
-                <li className="submitted">
-                  <p>07/2013 - 07/2014</p>
-                  <p>
-                    Biospecimen 3
-                    <span>TCGA-BRCA, Submitted</span>
-                  </p>
-                </li>
-                <li className="updated">
-                  <p>07/2012 - 07/2013</p>
-                  <p>
-                    Case 2
-                    <span>TCGA-BRCA, Updated</span>
-                  </p>
-                </li>
-                <li className="submitted">
-                  <p>07/2011 - 07/2012</p>
-                  <p>
-                    Case 2
-                    <span>TCGA-BRCA, Submitted</span>
-                  </p>
-                </li>
-              </ul>
-            </Panel>
-          </div>
-        </div>
-      </section>
+      <article>
+        <Row>
+          <Column>
+            <Row>
+              <FlashCard
+                image={<i className="fa fa-user fa-4x"></i>}
+                title='Cases'
+                value='233'
+                />
+              <FlashCard
+                image={<i className="fa fa-stethoscope fa-4x"></i>}
+                title='Biospecimen'
+                value='678'
+                />
+              <FlashCard
+                image={<i className="fa fa-file fa-4x"></i>}
+                title='Files'
+                value='45'
+                />
+            </Row>
+            <Row>
+              <Column>
+                <Row>
+                  <Panel title="Cases" actions={true}>
+                    <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flex: 1}}>
+                      <button onClick={this.registerCases}><i className="fa fa-clipboard"></i> Register Cases</button>
+                      <button onClick={this.uploadCases}><i className="fa fa-upload"></i> Upload Cases</button>
+                    </div>
+                  </Panel>
+                </Row>
+                <Row>
+                  <Panel title="Biospecimen" actions={true}>
+                    <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    flex: 1}}>
+                      <button onClick={this.registerBiospecimen}><i className="fa fa-clipboard"></i> Register
+                        Biospecimen
+                      </button>
+                      <button onClick={this.uploadBiospecimen}><i className="fa fa-upload"></i> Upload Biospecimen
+                      </button>
+                    </div>
+                  </Panel>
+                </Row>
+              </Column>
+              <Column>
+                <Row>
+                  <Panel title='Timeline' actions={true}>
+                    <ul>
+                      <li className="submitted">
+                        <p>2015-06-07</p>
+
+                        <p>
+                          Case 3
+                          <span>TCGA-BRCA, Submitted</span>
+                        </p>
+                      </li>
+                      <li className="deleted">
+                        <p>2015-06-07</p>
+
+                        <p>
+                          Biospecimen 4
+                          <span>TCGA-BRCA, Deleted</span>
+                        </p>
+                      </li>
+                      <li className="submitted">
+                        <p>2015-06-07</p>
+
+                        <p>
+                          Biospecimen 4
+                          <span>TCGA-BRCA, Submitted</span>
+                        </p>
+                      </li>
+                      <li className="updated">
+                        <p>2015-06-07</p>
+
+                        <p>
+                          Case 2
+                          <span>TCGA-BRCA, Updated</span>
+                        </p>
+                      </li>
+                      <li className="submitted">
+                        <p>2015-06-07</p>
+
+                        <p>
+                          Case 2
+                          <span>TCGA-BRCA, Submitted</span>
+                        </p>
+                      </li>
+                    </ul>
+                  </Panel>
+                </Row>
+              </Column>
+            </Row>
+          </Column>
+        </Row>
+      </article>
     );
   }
 }

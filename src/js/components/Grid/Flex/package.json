@@ -1,6 +1,6 @@
 {
-  "name": "Panel",
+  "name": "Flex",
   "version": "0.0.0",
   "private": true,
-  "main": "./Panel.jsx"
+  "main": "./Flex.jsx"
 }

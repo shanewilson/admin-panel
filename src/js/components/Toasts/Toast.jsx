@@ -1,24 +1,58 @@
 import React from 'react/addons';
 import cx from 'classnames';
 
-export default class ToastItem extends React.Component {
+import Actions from '../../actions/UIActions';
+
+class Toast extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {};
+  }
+
+  componentWillEnter(callback) {
+    setTimeout(callback, 1000);
+  }
+
+  componentDidEnter() {
+    this.setState({className: ['animated', 'fadeInUp']});
+    setTimeout(() => {
+      Actions.toastRemove(this.props.id);
+    }, 3000);
+  }
+
+  componentWillLeave(callback) {
+    this.setState({className: ['animated', 'fadeOutDown']});
+    setTimeout(callback, 1000);
+  }
+
   render() {
+    const classNames = cx('Toasts-toast', this.state.className);
+
     return (
-      <div className="Toasts-toast">
-        <div className="Toasts-toast-titlebar">
-          <div className="Toasts-toast-titlebar-title">
-            {this.props.title}
-          </div>
-          <button className="Toasts-toast-titlebar-close"
-                  onClick={this.props.handleClose}>
-            <i className="fa fa-close"></i>
-          </button>
-        </div>
-        <div className="Toasts-toast-content">
+      <li className={classNames}>
+        <span className="Toasts-toast-content">
           {this.props.children}
-        </div>
-      </div>
+        </span>
+        { this.props.action ?
+          <a href="#" className="Toasts-toast-action"
+             onClick={this.props.handleClick}>
+            {this.props.action}
+          </a>
+          : '' }
+      </li>
     );
   }
 }
+
+Toast.propTypes = {
+  handleClick: React.PropTypes.func,
+  action: React.PropTypes.string,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.element
+  ]).isRequired
+};
+
+export default Toast;
 

@@ -4,7 +4,11 @@ import cx from 'classnames';
 export default class PanelTop extends React.Component {
   render() {
     const cn = cx('Panel-top', {
-      'Panel-top--medallion': this.props.medallion
+      'Panel-top--minimized': this.props.minimized,
+      'Panel-top--medallion': this.props.medallion && !this.props.minimized
+    });
+    const min = cx('fa fa-chevron-down', {
+      'fa-rotate-180': this.props.minimized
     });
     return (
         <div className={cn}>
@@ -13,8 +17,10 @@ export default class PanelTop extends React.Component {
           </div>
           {this.props.actions ?
           <div className="Panel-top-actions">
-            <i className="fa fa-minus" style={{marginRight:'.3rem'}}></i>
-            <i className="fa fa-close"></i>
+            <i className={min}
+               onClick={this.props.handleMinimize}></i>
+            <i className="fa fa-close"
+               onClick={this.props.handleRemoval}></i>
           </div>
             : ''}
         </div>

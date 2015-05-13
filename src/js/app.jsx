@@ -1,64 +1,57 @@
 import React from 'react/addons';
 import { RouteHandler } from 'react-router';
-import cookie from 'react-cookie';
+import cx from 'classnames';
 
 import Header from './views/common/Header.jsx';
 import Flyout from './components/Flyout';
-import FlyoutActions from './components/Flyout/FlyoutActions';
-import FlyoutStore from './components/Flyout/FlyoutStore';
 import Toasts from './components/Toasts';
-import ToastsActions from './components/Toasts/ToastsActions';
-import Authenticator from './components/Authenticator';
+
+import UIStore from './stores/UIStore';
+import UIActions from './actions/UIActions';
 
 export default class App extends React.Component {
   constructor() {
     super();
-
-    this.state = {
-      isFlyoutOpen: false
-    };
-
-    this.open = this.open.bind(this);
-    this.slideOut = this.slideOut.bind(this);
-  }
-
-  open() {
-    FlyoutActions.open({
-        title: <div>Action!</div>,
-        children: <div>Action!</div>
-      }
-    );
-  }
-
-  toast() {
-    ToastsActions.toast({
-        title: <div>Action!</div>,
-        children: <div>Action!</div>
-      }
-    );
-  }
-
-  slideOut() {
-    this.setState({isFlyoutOpen: FlyoutStore.isOpen()});
+    this.state = this._getUIData();
+    this.onUIChange = this.onUIChange.bind(this);
   }
 
   componentDidMount() {
-    FlyoutStore.addChangeListener(this.slideOut);
+    UIStore.addChangeListener(this.onUIChange);
   }
 
   componentWillUnmount() {
-    FlyoutStore.removeChangeListener(this.slideOut);
+    UIStore.removeChangeListener(this.onUIChange);
   }
 
+  _getUIData() {
+    return {
+      flyoutData: UIStore.getFlyoutData(),
+      toastData: UIStore.getToastData()
+    };
+  }
+
+  onUIChange() {
+    this.setState(this._getUIData());
+  }
+
+
+
   render() {
-    let body = this.state.isFlyoutOpen ?
-      'MyApp-body MyApp-body--flyout' :
-      'MyApp-body';
+    const body = cx('MyApp-body', {
+      'MyApp-body--flyout': this.state.flyoutData.get('isOpen')
+    });
+
     return (
       <div className="MyApp">
-        <Flyout />
+        <Toasts
+          handleClose={UIActions.toastRemove}>
+          {this.state.toastData}
+        </Toasts>
+        <Flyout
+          handleClose={UIActions.flyoutClose}
+          {...this.state.flyoutData.toJS()}/>
         <div className={body}>
-          <Toasts />
           <Header />
           <RouteHandler />
         </div>

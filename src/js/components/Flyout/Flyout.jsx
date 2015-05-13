@@ -3,7 +3,7 @@ require('./Flyout.css');
 import React from 'react/addons';
 import cx from 'classnames';
 
-export default class Flyout extends React.Component {
+class Flyout extends React.Component {
   render() {
     return (
       <aside className={cx('Flyout', {
@@ -20,8 +20,20 @@ export default class Flyout extends React.Component {
         </div>
         <div className="Flyout-content">
           {this.props.children}
-          </div>
+        </div>
       </aside>
     );
   }
 }
+
+Flyout.propTypes = {
+  title: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.element
+  ]),
+  children: React.PropTypes.element,
+  isOpen: React.PropTypes.bool.isRequired,
+  handleClose: React.PropTypes.func.isRequired
+};
+
+export default Flyout;

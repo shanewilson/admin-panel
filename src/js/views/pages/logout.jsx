@@ -12,11 +12,11 @@ export default class Logout extends React.Component {
 
   render() {
     return (
-      <div style={{flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <div style={{width: '50vw', alignSelf: 'center'}}>
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh'}}>
+        <div style={{width: '50vw'}}>
           <Panel title="Logged Out">
             <div style={{'alignSelf': 'center', padding: '2rem'}}>
-              You are now logged out. <Home />
+              You are now logged out. Go <Home />.
             </div>
           </Panel>
         </div>

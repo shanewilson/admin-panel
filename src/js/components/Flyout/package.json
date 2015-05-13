@@ -2,5 +2,5 @@
   "name": "Flyout",
   "version": "0.0.0",
   "private": true,
-  "main": "./FlyoutContainer.js"
+  "main": "./Flyout.jsx"
 }

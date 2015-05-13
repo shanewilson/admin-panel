@@ -1,0 +1,6 @@
+{
+  "name": "FlashCard",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./FlashCard.jsx"
+}

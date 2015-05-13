@@ -1,8 +1,4 @@
-`Buzzwords: #reactjs #immutablejs #webpack #jest #selenium #hot-module-replacement #es6 #babeljs #authentication #postcss #eslint`
-
-- [Version with Stylus](https://github.com/shanewilson/react-webpack-example/tree/64e435063f6e9f8aa880965f7ea5099d28e7bf50)
-- [Version with Gulp](https://github.com/shanewilson/react-webpack-example/tree/8132c077870d41fbb08c9b2562b6204ea5cc4a75)
-- [Version with Browser-sync](https://github.com/shanewilson/react-webpack-example/tree/d7d251bea5935ceafdd89700ad6ff986c32c506c)
+`Buzzwords: #reactjs #immutablejs #webpack #jest #selenium #hot-module-replacement #es6 #babeljs #authentication #postcss #eslint #flexbox`
 
 Technologies
 =
@@ -16,6 +12,8 @@ Technologies
 - [PostCSS](https://github.com/postcss/postcss) - is a tool for transforming CSS with JS plugins
 - [Babel](https://babeljs.io/) - Babel will turn your ES6+ code into ES5 friendly code, so you can start using it right now without waiting for browser support
 - [ESLint](http://eslint.org/) - The pluggable linting utility for JavaScript and JSX 
+- [Flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) - Flexbox is a layout mode providing for the arrangement of elements on a page such that the elements behave predictably 
+
 
 Development
 =
@@ -114,10 +112,3 @@ Serving HTTP on 0.0.0.0 port 8000
 ...
 > open http://localhost:8000/
 ```
-
-Resources
-=
-
-- https://github.com/petehunt/webpack-howto
-- http://gaearon.github.io/react-hot-loader/
-- https://github.com/auth0/react-flux-jwt-authentication-sample

@@ -40,8 +40,11 @@
 }
 
 .Flyout-titlebar {
-    padding: 0 1rem;
+    background: #444;
+    color: #fff;
+    padding: 0 0 0 1rem;
     font-size: 1.2rem;
+    font-weight: 300;
     line-height: 3rem;
     display: flex;
     border-bottom: 0.1rem solid #ccc;
@@ -52,7 +55,10 @@
 }
 
 .Flyout-titlebar-close {
+    margin: 0;
     margin-left: auto;
+    background: #444;
+    color: #fff;
 }
 
 .Flyout-content {

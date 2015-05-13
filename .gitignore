@@ -5,3 +5,4 @@ selenium-debug.log
 dist/
 bower_components/
 tests/browser/reports
+vorlonjs.log

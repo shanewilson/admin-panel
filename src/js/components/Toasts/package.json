@@ -2,5 +2,5 @@
   "name": "Toasts",
   "version": "0.0.0",
   "private": true,
-  "main": "./ToastsContainer.js"
+  "main": "./Toasts.jsx"
 }
