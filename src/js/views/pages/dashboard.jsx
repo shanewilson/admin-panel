@@ -41,14 +41,10 @@ class UserDashboard extends React.Component {
     });
   }
 
-  deleteBlock() {
-
-  }
 
   render() {
     return (
       <article>
-        <button onClick={this.clickStream}></button>
         <Row>
           <Column>
             <Row>

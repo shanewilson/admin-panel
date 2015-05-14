@@ -16,9 +16,9 @@ class Toast extends React.Component {
 
   componentDidEnter() {
     this.setState({className: ['animated', 'fadeInUp']});
-    //setTimeout(() => {
-    //  Actions.toastRemove(this.props.id);
-    //}, 3000);
+    setTimeout(() => {
+      Actions.toastRemove(this.props.id);
+    }, 3000);
   }
 
   componentWillLeave(callback) {

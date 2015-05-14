@@ -42,7 +42,7 @@ module.exports = {
     require('postcss-custom-selectors')({extensions: varMap.selector}),
     require('postcss-media-minmax')(),
     require('postcss-color-function')(),
-    require('lost')
+    //require('lost')
     //require('postcss-bem-linter')({
     //  namespace: 'ns'
     //})
