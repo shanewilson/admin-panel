@@ -66,9 +66,7 @@ class Login extends React.Component {
 
   render() {
     const checking = this.state.status === 'checking';
-    const medallion = checking ?
-      <i className='fa fa-spin fa-cog'></i> :
-      <i className='fa fa-key'></i>;
+    const medallion = checking ? 'fa fa-spin fa-cog' : 'fa fa-key';
     return (
       <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh'}}>
         <div style={{width: '75vw'}}>

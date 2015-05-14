@@ -7,38 +7,10 @@ import RemovableComponent from '../RemovableComponent.js';
 import { Flex, Row, Column } from '../Grid';
 
 class FlashCard extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  componentWillEnter(callback) {
-    console.log('componentWillEnter');
-    setTimeout(callback, 1000);
-  }
-
-  componentDidEnter() {
-    console.log('componentDidEnter');
-    this.setState({className: ['animated', 'fadeInUp']});
-  }
-
-  componentWillLeave(callback) {
-    console.log('componentWillLeave');
-    this.setState({className: ['animated', 'fadeOutDown']});
-    setTimeout(callback, 1000);
-  }
-
-  componentDidLeave() {
-    console.log('componentDidLeave');
-    this.setState({className: ['hidden']});
-  }
-
   render() {
-    const classNames = cx('FlashCard', this.state.className);
-
     return (
       <Flex>
-        <Row className={classNames}>
+        <Row className="FlashCard">
           <div className="FlashCard-image">
             {this.props.image}
           </div>
@@ -50,8 +22,6 @@ class FlashCard extends React.Component {
               {this.props.title}
             </div>
           </Column>
-          <i onClick={this.props.handleRemoval} className="fa fa-remove FlashCard-close">
-          </i>
         </Row>
       </Flex>
     );
@@ -61,8 +31,7 @@ class FlashCard extends React.Component {
 FlashCard.propTypes = {
   image: React.PropTypes.element.isRequired,
   title: React.PropTypes.node.isRequired,
-  value: React.PropTypes.node.isRequired,
-  handleRemoval: React.PropTypes.func.isRequired
+  value: React.PropTypes.node.isRequired
 };
 
-export default RemovableComponent(FlashCard);
+export default FlashCard;
